@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lbyier.user.dao.UserDao">
+    <resultMap id="baseMap" type="com.lbyier.user.model.User">
+        <id column="id" property="id"/>
+        <result column="stu_pwd" property="stuPwd"/>
+        <result column="stu_name" property="stuName"/>
+        <result column="stu_num" property="stuNum"/>
+    </resultMap>
+    <insert id="regist" parameterType="com.lbyier.user.model.User" >
+        insert into stu
+        (
+        stu_name,
+        stu_num,
+        stu_pwd
+        )
+        values
+        (
+        #{stuName},
+        #{stuNum},
+        #{stuPwd}
+        )
+    </insert>
+
+    <select id="login" resultType="com.lbyier.user.model.User" resultMap="baseMap">
+        SELECT id,stu_pwd,stu_name,stu_num FROM stu
+        where stu_name=#{stuName} and stu_pwd=#{stuPwd} ;
+    </select>
+
+
+</mapper>

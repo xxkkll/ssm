@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"   >
+ 
+    <link rel="stylesheet" href="../css/device.css">
+   <script src="../js/jquery.min.js"></script>
+    <title>设备总览</title>
+</head>
+<body class="device">
+    <br>
+    <div class="x-nav">
+        <span class="layui-breadcrumb">
+            <a>首页</a>
+            <span lay-separator="">/</span>
+            <a>设备管理</a>
+            <span lay-separator="">/</span>
+            <a>设备信息总览</a>
+        </span>
+<a class="device-btn fa fa-repeat" style="line-height:1.6em;margin-top:5px;float:right"
+   id="refresh" href="device.html" title="刷新">
+    <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+</a>
+</div>
+<div class="layui-fluid" style="margin-bottom: 30px;min-height: 740px">
+<div class="layui-card" style="border-radius: 20px;">
+
+    <div class="layui-card-body"
+         style="background-image: linear-gradient(#f7e8df,#ffffff , #f7e8df);border-radius: 20px;">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+            <legend class="layui-icon">设备目录管理 <i class="	fa fa-object-ungroup"></i></legend>
+        </fieldset>
+        <form class="layui-form layui-col-space5" action="" id="myForm">
+            <div class="layui-inline  layui-show-xs-block">
+                <input  lay-verify="" id="findText" type="text" name="message"
+                       autocomplete="false" placeholder="设备类型" lay-reqText="" class="layui-input">
+            </div>
+            <div class="layui-inline layui-show-xs-block layui-device-btn">
+                <button class="device-btn select-btn" lay-submit="" lay-filter="search">
+                    <i class="fa fa-search"></i>查找
+                </button>
+            </div>
+        </form>
+        <div class="layui-border-box">
+            <table id="date-table"  width="100%" border="1" style="border-collapse: collapse;" >
+                <div class="date-table-header">
+                    <thead>
+                        <th class="th0">设备ID</th>
+                        <th class="th1">绑定情况</th>
+                        <th class="th2">设备类型</th>
+                        <th class="th3">操作</th>
+                    </thead>
+                </div>
+            <div class="date-table-body">
+                <tbody>
+                </tbody>
+            </div>
+            
+        </table>
+    </div>
+        
+    </div>
+</div>
+
+</div>
+</body>
+<script>
+    var equipment=[
+        {
+            ID:001,
+            blind_state:'未绑定',
+            type:'交通灯'
+         
+         },
+        {   ID:002,
+            blind_state:'已绑定',
+            type:'蜂鸣器'
+            },
+        {
+            ID:003,
+            blind_state:'已绑定',
+            type:'温湿度传感器'
+        }
+    ];
+        //获取表体
+        var tbody=document.querySelector('tbody');
+       //创建行数（设备数组的对象个数）
+        for(var i=0;i<equipment.length;i++){
+            //创建行节点
+            var tr=document.createElement('tr');
+            //向tbody添加行
+            tbody.appendChild(tr);
+            
+            //创建单元格 循环遍历对象属性 属性个数=单元格数
+            for(var k in equipment[i]){
+                // 创建单元格节点(td节点)
+                var td=document.createElement('td');
+                // 将单元格节点放入行节点
+                tr.appendChild(td);
+                //将对象中属性添加进单元格
+                td.innerHTML=equipment[i][k];
+            }
+            //创建操作单元格节点
+        var td=document.createElement('td');
+        // 添加操作单元格内容
+        td.innerHTML='<a href="javascript:;">删除</>';
+        tr.appendChild(td);
+        }
+        // 删除节点
+            // 获取所有操作单元格
+            var as=document.querySelectorAll('a');
+            for(var i=0;i<as.length;i++){
+                as[i].onclick=function(){
+                    var c=tbody.removeChild(this.parentNode.parentNode);
+                    
+                }
+            }
+
+      
+
+</script>
+</html>

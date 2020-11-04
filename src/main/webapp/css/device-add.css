@@ -1,0 +1,120 @@
+body {
+    line-height: 24px;
+    font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.nav-out-container{
+    border-width: 1px;
+    border-style: solid;
+}
+.nav-container{
+    /* border-width: 1px;
+    border-style: solid; */
+    padding: 7.5px;
+    width: 100%;
+    float: left;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+.nav-top{
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+    border-radius: 25px 25px 0 0;
+    line-height: 39px;
+    z-index: 99;
+    height: 39px;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(213, 213, 213, 0.37), rgba(168, 168, 168, 0));
+    -moz-border-radius: 25px 25px 0 0;
+    -webkit-border-radius: 25px 25px 0 0;
+}
+.nav-top a{
+    color: #e8f1ff;
+}
+.nav-body-flag{
+    margin: 10px 0 20px;
+    border-width: 1px 0 0;
+    border-color: #e6e6e6;
+    padding: 0;
+    
+    border-style: solid;
+}
+.nav-body-flag legend{
+    font-size:18px ;
+    margin-left: 20px;
+    padding: 15px 10px;
+    font-weight: 300;
+}
+.form-adddevice-itm{
+    margin: 10px 10px 10px 20px ;
+    font-weight: 300;
+    
+}
+.form-adddevice-lable{
+float: left;
+display: block;
+padding: 9px 10px;
+width: 80px;
+font-weight: 400;
+line-height: 20px;
+text-align: right;
+position: relative;
+}
+.form-adddevice-input{
+    margin-left: 110px;
+    min-height: 36px;
+}
+.form-adddevice-input input{
+    height: 30px;
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    line-height: 1.3;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #fff;
+    border-radius: 2px;
+    border-color: #e6e6e6;
+    -webkit-transition: all .3s;
+    box-sizing: border-box;
+    outline: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+/* 输入框聚焦 */
+input[type=text]:focus {
+    border-color: #009688;
+    border-radius: 10px;
+  }
+button{
+background-color:  #009688;
+font-size: 16px;
+border-radius: 2px;
+border: none;
+padding: 8px;
+color: white;
+}
+button:hover{
+    background-color: #7be4d9;
+    color:#009688;
+}
+.form-adddevice-btn0{
+    margin-left: 110px;
+    width: 120px;
+}  
+.form-adddevice-btn1{
+    margin-left: 15px;
+    width: 80px;
+} 
+.mybtn{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}               

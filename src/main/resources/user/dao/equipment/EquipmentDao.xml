@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lbyier.equipment.dao.EquipmentDao">
+    <resultMap id="baseMap" type="com.lbyier.equipment.model.Equipment">
+        <id column="id" property="id"/>
+        <result column="state_blind" property="state_blind"/>
+        <result column="equipment_type" property="equipment_type"/>
+        <result column="state_run" property="state_run"/>
+        <result column="owner_id" property="owner_id"/>
+        <result column="create_time" property="create_time"/>
+        <result column="blind_time" property="blind_time"/>
+        <result column="equipment_name" property="equipment_name"/>
+        <result column="is_delet" property="is_delet"/>
+
+    </resultMap>
+
+<!--    <insert id="addDate" parameterType="com.lbyier.equipment.model.Equipment">-->
+<!--        insert into equpments-->
+<!--        (-->
+<!--        tem,-->
+<!--        hum-->
+<!--        )-->
+<!--        values-->
+<!--        (-->
+<!--        #{tem},-->
+<!--        #{hum}-->
+<!--        )-->
+<!--    </insert>-->
+    <insert id="addEquipment" parameterType="integer">
+        insert into equpments_directory
+        (
+        state_blind,
+        equipment_type,
+        state_run,
+        owner_id,
+        create_time,
+        blind_time,
+        equipment_name,
+        is_delet
+
+        )
+        values
+        (
+        1,
+        #{equipment_type},
+        1,
+        #{owner_id},
+        now(),
+        )
+    </insert>
+    <select id="showDate" resultMap="baseMap" parameterType="com.lbyier.equipment.model.Equipment">
+        select tem,hum
+        from equpments
+    </select>
+    <select id="selectEquipment" parameterType="com.lbyier.equipment.model.Equipment" resultMap="baseMap">
+        select id,state_blind,equipment_type,state_run,owner_id,create_time,blind_time,equipment_name
+        from equpments_directory
+        where equipment_name=#{equipment_name}
+        and is_delet=1;
+
+    </select>
+
+
+</mapper>
