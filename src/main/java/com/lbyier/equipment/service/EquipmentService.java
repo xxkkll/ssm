@@ -11,8 +11,16 @@ import com.util.ResponseVo;
 public interface EquipmentService {
 //    int addDate(String tem, String hum);
 
-    ResponseVo showDate();
+
 
 
     ResponseVo addEquipment(Equipment equipment);
+
+    ResponseVo selectAllEquipment(String x);
+
+    ResponseVo findEquipmentType();
+
+    ResponseVo delEquipment(Equipment equipment);
+
+    ResponseVo searchEquipment(String equipment_type);
 }

@@ -17,7 +17,7 @@
     <script src="../js/jquery.min.js"></script>
     <title>智能安防</title>
 </head>
-<body class="index" style="background-image: url('../images/home_bk.gif');">
+<body class="index" style="background-image: url('../images/04.gif');">
 <!-- 顶部开始 -->
 <div class="top-nav">
     <div class="logo">
@@ -53,8 +53,8 @@
                     <li>
                         <a href="#" id="open-eqmtlst">设备列表<i class="fa fa-angle-down"></i></a>
                         <ul id="open-eqmtlst-menu" style="display: none;">
-                            <li><a href="#">温湿度传感器</a></li>
-                            <li><a href="#">烟雾传感器</a></li>
+<%--                            <li><a href="../html/device-list.html" target="ifram-a">温湿度传感器</a></li>--%>
+<%--                            <li><a href="../html/device-list.html" target="ifram-a">烟雾传感器</a></li>--%>
                         </ul>
                     </li>
                 </ul>
@@ -95,7 +95,6 @@
 
             $(".out-left-nav").slideToggle();
 
-
         })
 
         // 滑出设备管理列表
@@ -103,12 +102,53 @@
             $(".open-menu").slideToggle()
 
         })
+        var flag=0;
         //滑出设备列表菜单
         $("#open-eqmtlst").click(function(){
-            $("#open-eqmtlst-menu").slideToggle()
+            console.log("执行选择前:"+flag)
+            if(flag==0){
+                //$("#open-eqmtlst-menu").slideToggle()
+                $.ajax({
+                    url:"../equipment/findEquipmentType",
+                    type:"post",
+                    contentType:"application/json;charset=UTF-8",
+                    dataType:"json",
+                    success:function (data) {
+                        console.log(data)
+                        var types=data.data
+
+                        //获取ul
+                        var ul=document.getElementById("open-eqmtlst-menu")
+                        //创建li
+                        for (var i=0;i<types.length;i++){
+                            //创建li标签
+                            var li=document.createElement("li")
+                            //往ul添加li
+                            ul.appendChild(li);
+                            //创建a标签 建立超链接和目标
+                            var a=document.createElement("a");
+                            a.setAttribute('href','../html/device-list.html');
+                            a.setAttribute('target','ifram-a');
+                            //往li中添加a标签
+                            li.appendChild(a);
+                            //往a标签添加数据
+                            a.innerHTML=types[i].equipment_type;
+                        }
+
+                    }
+
+                })
+                $("#open-eqmtlst-menu").slideToggle()
+            }
+                if(flag!=0) {
+                $("#open-eqmtlst-menu").slideToggle();
+                console.log("执行else选择:"+flag)
+            }
+            flag++;
+            console.log("执行选择后:"+flag)
 
         })
-
     })
 </script>
+
 </html>

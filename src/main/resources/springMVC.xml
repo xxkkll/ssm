@@ -17,10 +17,13 @@
     </context:component-scan>
     <!-- 配置视图解析器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView"></property>
         <!-- JSP文件所在的目录 -->
         <property name="prefix" value="/WEB-INF/pages/" />
         <!-- 文件的后缀名 -->
         <property name="suffix" value=".jsp" />
+        <property name="order" value="0"></property>
     </bean>
 
     <!-- 设置静态资源不过滤 -->

@@ -1,5 +1,7 @@
 package com.lbyier.equipment.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,20 +9,24 @@ import java.util.Date;
  * @author LByier
  * @date 2020/10/25 16:28
  */
-
+//null值不显示
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Equipment implements Serializable {
     private Integer id;
     private Integer state_blind;
     private String equipment_type;
     private Integer state_run;
-    private Integer owner_id;
+    private String owner_id;
     private Date create_time;
     private Date blind_time;
     private String equipment_name;
     private Integer is_delet;
+    private String  equipment_id;
 
-    public Equipment(Integer id, Integer state_blind, String equipment_type, Integer state_run, Integer owner_id, Date create_time, Date blind_time, String equipment_name, Integer is_delet)
-    {
+    public Equipment() {
+    }
+
+    public Equipment(Integer id, Integer state_blind, String equipment_type, Integer state_run, String owner_id, Date create_time, Date blind_time, String equipment_name, Integer is_delet, String equipment_id) {
         this.id = id;
         this.state_blind = state_blind;
         this.equipment_type = equipment_type;
@@ -30,6 +36,15 @@ public class Equipment implements Serializable {
         this.blind_time = blind_time;
         this.equipment_name = equipment_name;
         this.is_delet = is_delet;
+        this.equipment_id = equipment_id;
+    }
+
+    public String getEquipment_id() {
+        return equipment_id;
+    }
+
+    public void setEquipment_id(String equipment_id) {
+        this.equipment_id = equipment_id;
     }
 
     public Integer getIs_delet() {
@@ -72,11 +87,11 @@ public class Equipment implements Serializable {
         this.state_run = state_run;
     }
 
-    public Integer getOwner_id() {
+    public String getOwner_id() {
         return owner_id;
     }
 
-    public void setOwner_id(Integer owner_id) {
+    public void setOwner_id(String owner_id) {
         this.owner_id = owner_id;
     }
 
@@ -111,11 +126,12 @@ public class Equipment implements Serializable {
                 ", state_blind=" + state_blind +
                 ", equipment_type='" + equipment_type + '\'' +
                 ", state_run=" + state_run +
-                ", owner_id=" + owner_id +
+                ", owner_id='" + owner_id + '\'' +
                 ", create_time=" + create_time +
                 ", blind_time=" + blind_time +
                 ", equipment_name='" + equipment_name + '\'' +
                 ", is_delet=" + is_delet +
+                ", equipment_id='" + equipment_id + '\'' +
                 '}';
     }
 }

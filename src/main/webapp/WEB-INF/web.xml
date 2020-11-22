@@ -36,7 +36,7 @@
   <!--netty端口-->
   <context-param>
     <param-name>socketPort</param-name>
-    <param-value>18080</param-value>
+    <param-value>12800</param-value>
   </context-param>
   <!-- 配置解决中文乱码的过滤器 -->
   <filter>

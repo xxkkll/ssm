@@ -12,10 +12,9 @@ body {
     border-style: solid;
 }
 .nav-container{
-    /* border-width: 1px;
-    border-style: solid; */
+    margin-top: 5px;
     padding: 7.5px;
-    width: 100%;
+    width: 98%;
     float: left;
     position: relative;
     display: block;
@@ -34,6 +33,10 @@ body {
     -moz-border-radius: 25px 25px 0 0;
     -webkit-border-radius: 25px 25px 0 0;
 }
+.nav-body{
+    width: 100%;
+    margin:10px 20px;
+}
 .nav-top a{
     color: #e8f1ff;
 }
@@ -42,7 +45,6 @@ body {
     border-width: 1px 0 0;
     border-color: #e6e6e6;
     padding: 0;
-    
     border-style: solid;
 }
 .nav-body-flag legend{
@@ -88,6 +90,10 @@ position: relative;
     font-size: inherit;
     font-style: inherit;
     font-weight: inherit;
+}
+ input:hover{
+    border-color: #009688;
+    border-radius: 10px;
 }
 /* 输入框聚焦 */
 input[type=text]:focus {

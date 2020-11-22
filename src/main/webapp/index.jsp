@@ -12,6 +12,7 @@
     <title>Title</title>
 
     <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/login.css">
 
     <script>
 
@@ -20,6 +21,7 @@
             //登录按钮事件
             $("#bt_login").click(function () {
                     var np = {"stuName": $("#stuName").val(), "stuPwd": $("#stuPwd").val()}
+                console.log(np)
 
                     $.ajax({
                         type: "post",//方法类型
@@ -61,22 +63,38 @@
     </script>
 
 </head>
-<body>
-<div id="login">
-    <h1>Login</h1>
-    <form method="post"  id="logForm" action="" >
-        <span id="user_errMsg"><input type="text"  placeholder="用户名" name="stuName" id="stuName" value="" /></span><br/>
-        <span id="pwd_errMsg"><input type="password"  placeholder="密码" name="stuPwd" id="stuPwd" value=""  /></span><br/>
-         <p id="p1" style="color: crimson" hidden="hidden">密码或账号错误！！</p>
-    <%--解决：使用input标签 button类型 使用Ajax提交就不会刷新页面--%>
-        <input type="button" value="登录" id="bt_login"/>
-        <input type="button" value="注册" id="bt_rst" >
+<body >
 
-    <%--问题：form中存在button标签时，使用Ajax提交表单，页面还是被刷新了--%>
-        <%--<button id="bt_login" type="submit" >登录</button>--%>
-        <%--<button id="bt_rst" type="submit" >注册</button>--%>
+<div class="box">
+    <h2>Login</h2>
+    <form  id="logForm">
+        <div class="item">
+            <input type="text"  id="stuName">
+
+        </div>
+        <div class="item">
+            <input type="password"  id="stuPwd">
+        </div>
+        <input type="button" class="btn" id="bt_login" value="登录"/>
+
+
     </form>
 </div>
-
 </body>
+<%--<body>--%>
+<%--<div id="login">--%>
+<%--    <h1>Login</h1>--%>
+<%--    <form method="post"  id="logForm" action="" >--%>
+<%--        <span id="user_errMsg"><input type="text"  placeholder="用户名" name="stuName" id="stuName" value="" /></span><br/>--%>
+<%--        <span id="pwd_errMsg"><input type="password"  placeholder="密码" name="stuPwd" id="stuPwd" value=""  /></span><br/>--%>
+<%--         <p id="p1" style="color: crimson" hidden="hidden">密码或账号错误！！</p>--%>
+<%--    &lt;%&ndash;解决：使用input标签 button类型 使用Ajax提交就不会刷新页面&ndash;%&gt;--%>
+<%--        <input type="button" value="登录" id="bt_login"/>--%>
+<%--        <input type="button" value="注册" id="bt_rst" >--%>
+
+
+<%--    </form>--%>
+<%--</div>--%>
+
+<%--</body>--%>
 </html>

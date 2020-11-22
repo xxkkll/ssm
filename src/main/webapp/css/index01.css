@@ -95,7 +95,9 @@ a{
 .left-nav .open a i{
     padding-left: 5px;
 }
-
+#open-eqmtlst-menu a{
+    padding-left: 40px;
+}
 .left-nav ul li ul li:hover ul{
     
     display: block;

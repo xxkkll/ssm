@@ -34,21 +34,27 @@
                 <form class="form-adddevice">
                     <div class="form-adddevice-itm">
                         
-                            <label class="form-adddevice-lable">设备名称</label>
+                            <label class="form-adddevice-lable">传感器名称</label>
                         <div class="form-adddevice-input">
-                            <input type="text" id="equipmentName" placeholder="设备名称不要重名" name="equipmentName">
+                            <input type="text" id="equipmentName" placeholder="传感器不要重名" name="equipmentName">
                         </div>
                     </div>
                     <div class="form-adddevice-itm">
-                        <label class="form-adddevice-lable">设备类型</label>
+                        <label class="form-adddevice-lable">设备节点</label>
                         <div class="form-adddevice-input">
-                            <input type="text" id="equipmentType" placeholder="设备类型 如：温湿度传感器" name="equipmentType">
+                            <input type="text" id="equipmentType" placeholder="如：温湿度节点" name="equipmentType">
                         </div>
                     </div>
                     <div class="form-adddevice-itm">
                         <label class="form-adddevice-lable">用户ID</label>
                         <div class="form-adddevice-input">
                             <input type="text" id="userPhone" placeholder="输入手机号进行设备绑定" name="userPhone">
+                        </div>
+                    </div>
+                    <div class="form-adddevice-itm">
+                        <label class="form-adddevice-lable">设备ID</label>
+                        <div class="form-adddevice-input">
+                            <input type="text" id="equipmentId" placeholder="设备id" name="equipmentId">
                         </div>
                     </div>
                     <div class="form-adddevice-itm mybtn">
@@ -75,23 +81,18 @@
                 data:JSON.stringify({
                     "equipment_name":$("#equipmentName").val(),
                     "equipment_type":$("#equipmentType").val(),
-                    "owner_id":$("#userPhone").val()
+                    "owner_id":$("#userPhone").val(),
+                    "equipment_id":$("#equipmentId").val(),
                 }),
                 dataType:"json",
                 success:function (data) {
                     console.log(data);
-                    if (data.code==1){
-                        alert(data.msg)
-                        window.location.href="/device.html"
-                    }
-                    else {
 
-                        alert(data.msg)
-                    }
+                    alert(data.msg)
 
                 },
-                error:function () {
-                    alert("error")
+                error:function (data) {
+                    alert(data.msg)
                 }
             })
 

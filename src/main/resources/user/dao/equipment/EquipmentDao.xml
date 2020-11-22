@@ -13,22 +13,11 @@
         <result column="blind_time" property="blind_time"/>
         <result column="equipment_name" property="equipment_name"/>
         <result column="is_delet" property="is_delet"/>
-
+        <result column="equipment_id" property="equipment_id"/>
     </resultMap>
 
-<!--    <insert id="addDate" parameterType="com.lbyier.equipment.model.Equipment">-->
-<!--        insert into equpments-->
-<!--        (-->
-<!--        tem,-->
-<!--        hum-->
-<!--        )-->
-<!--        values-->
-<!--        (-->
-<!--        #{tem},-->
-<!--        #{hum}-->
-<!--        )-->
-<!--    </insert>-->
-    <insert id="addEquipment" parameterType="integer">
+
+    <insert id="addEquipment" parameterType="com.lbyier.equipment.model.Equipment">
         insert into equpments_directory
         (
         state_blind,
@@ -38,8 +27,8 @@
         create_time,
         blind_time,
         equipment_name,
-        is_delet
-
+        is_delet,
+        equipment_id
         )
         values
         (
@@ -48,17 +37,56 @@
         1,
         #{owner_id},
         now(),
+        now(),
+        #{equipment_name},
+        1,
+        #{equipment_id}
+
         )
     </insert>
-    <select id="showDate" resultMap="baseMap" parameterType="com.lbyier.equipment.model.Equipment">
-        select tem,hum
-        from equpments
-    </select>
+    <update id="delEquipment" parameterType="string">
+        update
+                equpments_directory
+            set
+                is_delet=0
+            where
+                equipment_type=#{equipment_type}
+                and
+                equipment_name=#{equipment_name}
+                and
+                equipment_id=#{equipment_id}
+
+    </update>
+
     <select id="selectEquipment" parameterType="com.lbyier.equipment.model.Equipment" resultMap="baseMap">
-        select id,state_blind,equipment_type,state_run,owner_id,create_time,blind_time,equipment_name
+        select id,state_blind,equipment_type,state_run,owner_id,create_time,blind_time,equipment_name,equipment_id
         from equpments_directory
-        where equipment_name=#{equipment_name}
-        and is_delet=1;
+        where equipment_name=#{param1}
+        and equipment_type=#{param2}
+        and equipment_id=#{param3}
+        and is_delet=1
+
+    </select>
+
+    <select id="selectAllEquipment" resultMap="baseMap" parameterType="string">
+        select equipment_id,equipment_name,state_blind,equipment_type
+        from equpments_directory
+        where is_delet=1
+        <if test="_parameter !=null">
+             and equipment_type like #{_parameter}
+        </if>
+    </select>
+
+    <select id="findEquipmentType" parameterType="com.lbyier.equipment.model.Equipment" resultMap="baseMap">
+        SELECT DISTINCT equipment_type
+        FROM equpments_directory
+        where is_delet=1
+    </select>
+    <select id="searchEquipment" parameterType="string" resultMap="baseMap">
+        select id,state_blind,equipment_type
+        from equpments_directory
+        where is_delet=1
+        and equipment_type=#{equipment_type}
 
     </select>
 

@@ -25,6 +25,7 @@
 
 		<mapper resource="user/dao/user/UserDao.xml"/>
 		<mapper resource="user/dao/equipment/EquipmentDao.xml"/>
+		<mapper resource="user/dao/collectionInfo/CollectionInfoDao.xml"/>
 
 
 	</mappers>

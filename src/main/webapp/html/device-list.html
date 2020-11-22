@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设备列表模板</title>
+    <link rel="stylesheet" href="../css/device-list.css">
+    <script src="../js/jquery.min.js"></script>
+    <link rel = "stylesheet" href = "https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"   >
+</head>
+<body class="device-list">
+    <div class="nav-body">
+        <!-- 顶部栏 -->
+        <div class="nav-top">
+            <a>首页</a>
+            <span>/</span>
+            <a>设备管理</a>
+            <span>/</span>
+            <a>设备列表</a>
+            <a class="refresh" href="device-list" 
+            style="line-height:1.6em;margin-top:5px;float:right" title="刷新">
+                <i class="fa fa-repeat" style="line-height:30px"></i>
+            </a>
+        </div>
+        <!-- 内容栏 -->
+        <div class="nav-out-container" style="padding: 15px;">
+            <div class="nav-container" style="padding: 7.5px;">
+                <div class="nav-body" style="border-radius: 20px;">
+                    <div class="nav-body0" 
+                    style="background-image: linear-gradient(#f6e4f7,#ffffff , #f6e4f7);"
+                    border-radius: 20px;>
+                    <form class="nav-body0-myform" style="margin-top: 5px;">
+                        <div class="myform-input">
+                            <input type="text" placeholder="输入用户ID查询设备">
+                        </div>
+                        <div class="myform-btn">
+                            <button type="submit"><p><i class="fa fa-search"></i>查询</p></button>
+                        </div>
+                    </form>
+                    <!-- 表格 -->
+                    <div class="mytable">
+                        <div class="mytable-border-box">
+                            <div class="mytable-box">
+                                <table border="1">
+                                    <thead class="mytable-th">
+                                        <th class="th0">状态</th>
+                                        <th class="th1">设备ID</th>
+                                        <th class="th2">用户ID</th>
+                                        <th class="th3">状态可视化</th>
+                                        <th class="th4">操作</th>
+                                    </thead>
+                                    <tbody class="mytable-tbody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<script>
+    var x=[{
+        state:'正常',
+        equipmentid:01,
+        userid:001,
+
+    },{state:'正常',
+        equipmentid:02,
+        userid:003
+        }];
+// 获取表体
+var tbody=document.querySelector('tbody')
+//创建行节点
+for(var i=0;i<x.length;i++){
+    var tr=document.createElement('tr');
+    tbody.appendChild(tr);
+    //创建单元格
+    for(var j in x[i]){
+        //创建单元格节点
+        var td=document.createElement('td')
+        tr.appendChild(td)
+        //向单元格添加内容
+        td.innerHTML=x[i][j];
+    }
+    //创建可操作(实时动态)单元格
+    var td=document.createElement('td');
+    td.innerHTML='<a href="../html/online-date.html" target="ifram-a" >查看实时动态</a>';
+    tr.appendChild(td);
+    //创建可操作单元格
+    var td=document.createElement('td');
+    td.innerHTML='<a class="delet" href="javascript:;">删除</a>';
+    tr.appendChild(td);
+}
+//删除操作
+    // 获取所有操作单元格
+    var as=document.querySelectorAll('.delet');
+            for(var i=0;i<as.length;i++){
+                as[i].onclick=function(){
+                    var c=tbody.removeChild(this.parentNode.parentNode);
+                    
+                }
+            }
+
+</script>
+</html>

@@ -18,13 +18,10 @@
 
     <!-- 引入映射配置文件 -->
     <mappers>
-        <!--
-        <mapper class="cn.itcast.dao.AccountDao"/>
-        <mapper class="cn.itcast.dao.UserDao"/>
-        -->
 
 
-        <mapper resource="user/dao/equipment/EquipmentDao.xml"/>
+
+        <mapper resource="user/dao/collectionInfo/CollectionInfoDao.xml"/>
 
 
     </mappers>

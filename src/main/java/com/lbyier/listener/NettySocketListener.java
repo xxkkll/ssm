@@ -1,6 +1,6 @@
 package com.lbyier.listener;
 
-import com.lbyier.equipment.netty.thread.NettyServerThread;
+import com.lbyier.collectionInfo.netty.thread.NettyServerThread;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
