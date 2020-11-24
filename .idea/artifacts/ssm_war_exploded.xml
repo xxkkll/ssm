@@ -42,10 +42,12 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: io.netty:netty-all:4.1.17.Final" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.0" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.0.2.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/classes/ssm/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="ssm/web/Web" />
     </root>

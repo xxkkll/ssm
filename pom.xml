@@ -201,7 +201,7 @@
       <artifactId>lombok</artifactId>
       <version>1.18.0</version>
     </dependency>
-    <!--多映射-->
+    <!--多视图解析器-->
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
