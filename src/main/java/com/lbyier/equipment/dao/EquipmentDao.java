@@ -21,7 +21,7 @@ public interface EquipmentDao {
 
     Integer addEquipment(Equipment equipment);
 
-    List<Equipment> selectAllEquipment( String equipment_type);
+    List<Equipment> selectAllEquipment(@Param("equipment_type") String equipment_type);
 
     List<Equipment> findEquipmentType();
 

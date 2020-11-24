@@ -3,6 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+	<setting name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/>
+</settings>
 	<!-- 配置环境 -->
 	<!--<environments default="mysql">
 		<environment id="mysql">
@@ -29,5 +32,6 @@
 
 
 	</mappers>
+
 
 </configuration>  

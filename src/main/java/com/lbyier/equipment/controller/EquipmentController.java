@@ -44,13 +44,13 @@ public class EquipmentController {
     }
 
     @PostMapping("/selectAllEquipment")
-    public  @ResponseBody ResponseVo selectAllEquipment(@RequestBody String x){
+    public   @ResponseBody ResponseVo selectAllEquipment(@RequestBody Equipment equipment){
         ResponseVo responseVo = new ResponseVo();
 
         try {
 
-            responseVo=equipmentService.selectAllEquipment(x);
-            logger.info("处理器：请求参数："+x);
+            responseVo=equipmentService.selectAllEquipment(equipment);
+            logger.info("处理器：请求参数："+equipment.getEquipment_type());
             logger.info("处理器：查询设备结果=>"+responseVo.getMsg());
             logger.info("处理器：查询设备=>"+responseVo.getData());
         } catch (Exception e) {

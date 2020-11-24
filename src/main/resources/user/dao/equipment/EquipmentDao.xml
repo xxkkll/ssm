@@ -71,10 +71,13 @@
     <select id="selectAllEquipment" resultMap="baseMap" parameterType="string">
         select equipment_id,equipment_name,state_blind,equipment_type
         from equpments_directory
-        where is_delet=1
-        <if test="_parameter !=null">
-             and equipment_type like #{_parameter}
-        </if>
+        <where>
+            is_delet=1
+            <if test="equipment_type !=null and equipment_type !=''">
+                and equipment_type like concat ('%',#{equipment_type},'%')
+            </if>
+
+        </where>
     </select>
 
     <select id="findEquipmentType" parameterType="com.lbyier.equipment.model.Equipment" resultMap="baseMap">

@@ -81,11 +81,15 @@
             $.ajax({
                 type:"post",
                 url:"../equipment/selectAllEquipment",
-                contentType: "application/json;charset=UTF-8",
-                data:{"equipment_type":$(".searchEquipment_text").val()},
+                // contentType: "application/json;charset=UTF-8",
+                contentType:"application/json;charset=UTF-8",
+                data:JSON.stringify({"equipment_type":$(".searchEquipment_text").val()}),
+                //dataType:"json"
                 dataType:"json",
                 success:function (data) {
+
                     console.log(data)
+                        console.log(data.data)
                     var equipment=data.data
                     //获取表体
                     var tbody=document.querySelector('tbody');

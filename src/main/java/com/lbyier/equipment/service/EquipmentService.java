@@ -16,7 +16,7 @@ public interface EquipmentService {
 
     ResponseVo addEquipment(Equipment equipment);
 
-    ResponseVo selectAllEquipment(String x);
+    ResponseVo selectAllEquipment(Equipment equipment);
 
     ResponseVo findEquipmentType();
 
